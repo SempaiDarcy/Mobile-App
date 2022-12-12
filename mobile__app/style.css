@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+@import url('./fonts/icons/style.css');
+
+:root {
+    --gradient:linear-gradient(to right, #a894e6, #7e78ee);
+    --gray: #f0f0f0;
+    --light: white;
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e0e5eb;
+    font-family: 'Rubik', sans-serif;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.mobile {
+    width: 350px;
+    height: 730px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-rows: 48px 1fr 62px ;
+}
+.mobile__top,
+.mobile__bottom {
+    display: grid;
+    align-self: center ;
+    justify-self: center;
+}
+
+.mobile__content {
+    background: #777;
+}
+
+
+/*UI Components*/
+.selectbox {
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+    /*позиционированный предок*/
+}
+
+.selectbox__selected {
+    font-size: 16px;
+    width: 120px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.ic_arrow {
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+
+.selectbox.open .selectbox__list {
+    top: 120%;
+    max-height: 200px;
+}
+
+.selectbox__list {
+    position: absolute;/*Если у элемента есть позиционированный предок, то position: absolute работает относительно него, а не относительно документа.
+То есть, достаточно поставить родительскому div позицию relative, даже без координат – и заголовок будет в его правом-верхнем углу, вот так:*/
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 120px;
+    max-height: 0px;
+    padding: 4px 8px;
+    white-space: nowrap; /*чтобы строка не переносилась*/
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.selectbox__item {
+}
+.selectbox__item:not(:last-child){
+    margin-bottom: 4px;
+}
+
